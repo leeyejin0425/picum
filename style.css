@@ -53,6 +53,15 @@ main {
   text-align: center;
 }
 
+/* 입력 필드 스타일 */
+#name-input {
+  padding: 10px;
+  font-size: 1rem;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
 /* 버튼 스타일 */
 button {
   padding: 10px 20px;
@@ -69,6 +78,23 @@ button:hover {
   background-color: #574bff;
 }
 
+/* Explore 버튼 스타일 */
+.explore-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #6c63ff;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.explore-btn:hover {
+  background-color: #574bff;
+}
+
 /* 이미지 섹션 스타일 */
 .image-section {
   display: flex;
@@ -82,6 +108,13 @@ button:hover {
   width: 80px;
   height: 80px;
   object-fit: contain;
+}
+
+/* 텍스트 스타일 */
+.description {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #333;
 }
 
 /* 페이지 전환 애니메이션 */
@@ -106,26 +139,59 @@ canvas {
   pointer-events: none; /* 캔버스가 클릭을 방해하지 않음 */
 }
 
-/* Explore 버튼 스타일 */
-.explore-btn {
+/* Name Input Section 추가 */
+#next-button {
   padding: 10px 20px;
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
   background-color: #6c63ff;
   color: white;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 20px;
 }
 
-.explore-btn:hover {
+#next-button:hover {
   background-color: #574bff;
 }
 
-/* 텍스트 스타일 */
-.description {
-  font-size: 1.2rem;
-  line-height: 1.5;
-  color: #333;
+#name-input {
+  padding: 10px;
+  font-size: 1rem;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+/* 진행 바 스타일 */
+.progress-bar {
+  width: 80%;
+  height: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px auto;
+  position: relative;
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+  background-color: #6c63ff;
+  transition: width 0.05s linear;
+}
+
+/* Transition 효과 */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

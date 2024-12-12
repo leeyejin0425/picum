@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Emotone</title>
   <link rel="stylesheet" href="style.css">
+  <!-- p5.js 라이브러리 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+
+
+  <!-- p5.serialserver -->
   <script src="https://cdn.jsdelivr.net/npm/p5.serialserver@latest/lib/p5.serialport.js"></script>
+  <!-- sketch.js -->
   <script src="sketch.js" defer></script>
   <script src="app.js" defer></script>
 </head>
@@ -22,15 +27,24 @@
     </nav>
   </header>
   <main id="content">
-    <!-- Main 페이지 콘텐츠가 기본으로 로드됩니다 -->
+    <!-- Main 페이지 콘텐츠 -->
     <div class="container">
       <h1>나만의 Emotone</h1>
       <p>Emotone은 감정을 색상과 소리로 표현하는 창의적인 시스템입니다.</p>
-      <button id="explore-button" onclick="navigate('how-to-play')">나만의 Emotone 탐색하기</button>
+      <button id="explore-button" onclick="navigate('name-input')">나만의 Emotone 탐색하기</button>
     </div>
   </main>
+  <!-- 심박수와 조이스틱 출력 -->
+  <div id="monitor">
+    <h2>Joystick and Heart Rate Monitor</h2>
+    <p>Joystick X: <span id="joystickX">0</span></p>
+    <p>Joystick Y: <span id="joystickY">0</span></p>
+    <p>Button State: <span id="buttonState">Released</span></p>
+    <p>Heart Rate: <span id="heartRate">0</span></p>
+  </div>
 </body>
 </html>
+
 
 
 
