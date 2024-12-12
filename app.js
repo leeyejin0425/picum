@@ -1,24 +1,23 @@
 // 페이지 콘텐츠 데이터
 const pages = {
   main: `
-    <div class="container">
-      <h1>나만의 Emotone</h1>
-      <p>Emotone은 감정을 색상과 소리로 표현하는 창의적인 시스템입니다.</p>
-      <button id="explore-button" onclick="navigate('name-input')">나만의 Emotone 탐색하기</button>
-    </div>
-  `,
-  about: `
-    <div class="container">
-      <h1>About Emotone</h1>
-      <p>Emotone은 감정을 분석하고 색상과 소리로 표현하는 창의적인 시스템입니다. 이를 통해 나만의 감정을 시각적으로 이해할 수 있습니다.</p>
-    </div>
-  `,
-  how: `
-    <div class="container">
-      <h1>How Emotone Works</h1>
-      <p>Emotone은 조이스틱과 심박수 센서를 사용하여 감정을 분석합니다.</p>
-      <p>조이스틱으로 감정을 탐색하고, 센서 데이터를 활용하여 나만의 Emotone을 생성합니다.</p>
-    </div>
+  <div class="container">
+    <h1>나만의 Emotone</h1>
+    <p>Emotone은 감정을 색상과 소리로 표현하는 창의적인 시스템입니다.</p>
+    <button id="explore-button" onclick="navigate('name-input')">나만의 Emotone 탐색하기</button>
+  </div>
+`,
+about: `
+  <div class="container">
+    <h1>About Emotone</h1>
+    <p>Emotone은 감정을 분석하고, 이를 색상과 소리로 변환하는 창의적인 시스템입니다.</p>
+  </div>
+`,
+how: `
+  <div class="container">
+    <h1>How Emotone Works</h1>
+    <p>Emotone은 입력된 데이터를 기반으로 고유한 색상과 사운드를 생성합니다.</p>
+  </div>
   `,
   "name-input": `
     <div class="container">
@@ -52,6 +51,9 @@ const pages = {
   result: `
     <div class="container">
       <h1 id="result-title"></h1>
+      <div class="color-frame">
+        <div id="color-box"></div>
+      </div>
       <p>Emotone 결과 페이지입니다.</p>
     </div>
   `,
@@ -69,9 +71,7 @@ function navigate(page) {
 
     if (page === "result") {
       displayResult();
-      isResultPage = true; // 결과 페이지 플래그 활성화
-    } else {
-      isResultPage = false; // 다른 페이지에서는 플래그 비활성화
+      setRandomGradientInFrame(); // 결과 페이지에서 랜덤 그라데이션 프레임 설정
     }
   }
 }
@@ -114,5 +114,23 @@ function displayResult() {
   }
 }
 
+// 랜덤 색상 생성 함수
+function getRandomColor() {
+  const randomChannel = () => Math.floor(Math.random() * 256);
+  return `rgb(${randomChannel()}, ${randomChannel()}, ${randomChannel()})`;
+}
 
+// 랜덤 그라데이션 프레임 설정
+function setRandomGradientInFrame() {
+  const colorBox = document.getElementById("color-box");
+  if (!colorBox) {
+    console.error("Error: #color-box element not found!");
+    return;
+  }
 
+  const color1 = getRandomColor();
+  const color2 = getRandomColor();
+
+  console.log("Random Gradient Colors:", color1, color2); // 디버깅용 출력
+  colorBox.style.background = `linear-gradient(to bottom, ${color1}, ${color2})`;
+}
