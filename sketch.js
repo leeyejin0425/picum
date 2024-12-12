@@ -1,30 +1,43 @@
 let serial; // Serial port 객체
-let portName = '/dev/ttyUSB0'; // 아두이노 포트 이름 (Windows: COM6)
+let portName = 'COM6'; // 아두이노가 연결된 포트
 let joystickX = 0;
 let joystickY = 0;
+let buttonPressed = false;
 
 function setup() {
-  noCanvas(); // 캔버스 생성하지 않음
+  createCanvas(400, 400); // 캔버스 크기 설정
   serial = new p5.SerialPort(); // SerialPort 객체 생성
-  serial.open(portName); // 포트 열기
-  serial.on('data', serialEvent); // 데이터 수신 이벤트
+  serial.open(portName); // 아두이노 포트 열기
+  serial.on('data', serialEvent); // 시리얼 데이터 수신 시 실행
+
+  // 캔버스 초기화
+  background(220);
 }
 
 function draw() {
-  // 모든 페이지의 content 영역 이동
-  let content = document.getElementById("content");
-  if (content) {
-    content.style.transform = `translate(${joystickX}px, ${joystickY}px)`;
-  }
+  background(220);
+
+  // 조이스틱 값으로 원 그리기
+  fill(100, 150, 255);
+  noStroke();
+  ellipse(joystickX, joystickY, 50, 50);
+
+  // 버튼 상태 표시
+  fill(0);
+  textSize(16);
+  textAlign(CENTER, CENTER);
+  text(`Button: ${buttonPressed ? "Pressed" : "Released"}`, width / 2, height - 30);
 }
 
 function serialEvent() {
-  let data = serial.readLine(); // 시리얼 데이터 한 줄 읽기
+  let data = serial.readLine(); // 시리얼 데이터 읽기
   if (!data) return;
 
-  let values = data.split(" "); // 데이터를 공백으로 나누기
+  let values = data.split(" "); // 데이터를 공백으로 분리
   if (values.length === 3) {
-    joystickX = map(parseInt(values[0]), 0, 1023, -200, 200); // X축 매핑
-    joystickY = map(parseInt(values[1]), 0, 1023, -200, 200); // Y축 매핑
+    joystickX = map(parseInt(values[0]), 0, 1023, 0, width); // X축 값 매핑
+    joystickY = map(parseInt(values[1]), 0, 1023, 0, height); // Y축 값 매핑
+    buttonPressed = parseInt(values[2]) === 0; // 버튼 상태 확인
   }
 }
+
