@@ -1,5 +1,5 @@
 // 페이지 콘텐츠 데이터
-const archiveData = []; // 아카이빙 데이터 저장
+
 
 
 const pages = {
@@ -21,14 +21,6 @@ how: `
     <h1>How Emotone Works</h1>
     <p>Emotone은 입력된 데이터를 기반으로 고유한 색상과 사운드를 생성합니다.</p>
   </div>
-  `,
-  archive: `
-    <div class="container">
-      <h1>Emotone Archive</h1>
-      <div id="archive-list">
-        <p>아직 아카이빙된 결과가 없습니다.</p>
-      </div>
-    </div>
   `,
   "name-input": `
     <div class="container">
@@ -84,9 +76,7 @@ function navigate(page) {
       startProgressBar();
     } else if (page === "result") {
       displayResult();
-    } else if (page === "archive") {
-      updateArchivePage();
-    }
+    } 
   }
 }
 
@@ -103,34 +93,6 @@ function handleNameInput() {
   }
 }
 
-function saveToArchive(name, colors) {
-  // 이름과 컬러 저장
-  archiveData.push({ name, colors });
-
-  console.log("Archive updated:", archiveData); // 디버깅용
-}
-
-function updateArchivePage() {
-  const archiveList = document.getElementById("archive-list");
-  if (!archiveList) return;
-
-  if (archiveData.length === 0) {
-    archiveList.innerHTML = `<p>아직 아카이빙된 결과가 없습니다.</p>`;
-    return;
-  }
-
-  // 아카이빙된 데이터 표시
-  archiveList.innerHTML = archiveData
-    .map(
-      (item) => `
-      <div class="archive-item">
-        <p><strong>${item.name}</strong>님의 Emotone</p>
-        <div class="archive-color" style="background: linear-gradient(to bottom, ${item.colors.startColor}, ${item.colors.endColor});"></div>
-      </div>
-    `
-    )
-    .join("");
-}
 
 
 
@@ -160,8 +122,8 @@ function displayResult() {
 
   // 랜덤 그라데이션 생성
   const colors = setRandomGradientInFrame();
-  // 아카이브에 저장
-  saveToArchive(userName, colors);
+ 
+
 }
 
 // 랜덤 색상 생성 함수
