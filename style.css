@@ -1,22 +1,55 @@
+/* 다중 색상 그라데이션 배경 */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff9a9e 25%, #fad0c4 50%, #fbc2eb 75%, #a1c4fd 100%);
+  background-size: 300% 300%;
+  animation: backgroundMove 10s infinite;
+  z-index: -1; /* 배경을 맨 아래로 */
+}
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 페이지 전환 효과 */
 body {
   margin: 0;
   font-family: "Arial", sans-serif;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.7s ease; /* 페이지 전환 페이드 효과 */
 }
 
+/* 헤더 스타일 */
 header {
-  background: #fff;
+  background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
-  width: 100%;
   top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 nav ul {
   list-style: none;
+  margin: 0;
+  padding: 10px 20px;
   display: flex;
   justify-content: center;
-  padding: 10px;
-  margin: 0;
 }
 
 nav ul li {
@@ -25,21 +58,74 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #000;
+  color: black;
   font-weight: bold;
+  transition: opacity 0.7s ease;
 }
 
+/* 메인 콘텐츠 */
 main {
-  margin-top: 50px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 50px);
+  height: 100vh;
+  padding-top: 60px;
+  transition: opacity 0.7s ease; /* 콘텐츠도 페이드 효과 */
+}
+
+.container {
   text-align: center;
 }
 
-#content {
-  transition: transform 0.1s linear;
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  opacity: 1;
+  transition: opacity 0.7s ease;
 }
 
+p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  opacity: 1;
+  transition: opacity 0.7s ease;
+}
 
+/* 버튼 그룹 */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.explore-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #6c63ff;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px;
+  opacity: 1;
+  transition: background-color 0.3s ease, opacity 0.7s ease;
+}
+
+.explore-btn:hover {
+  background-color: #574bff;
+}
+
+/* 이미지 섹션 스타일 */
+.image-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.image-section img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}

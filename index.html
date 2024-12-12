@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Main Page</title>
+  <title>나만의 Emotone</title>
   <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
   <header>
@@ -12,21 +13,22 @@
       <ul>
         <li><a href="index.html">Main</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="how-to-play.html">How to Play</a></li>
+        <li><a href="how.html">How</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <div id="content">
-      <h1>Welcome to Emotone</h1>
-      <p>Use the joystick to interact with the page!</p>
+    <div class="container">
+      <h1>나만의 Emotone</h1>
+      <p class="description">Emotone은 감정을 색상과 소리로 표현하는 시스템입니다.</p>
+      <!-- 버튼 경로 수정 -->
+      <button class="explore-btn" onclick="navigateTo('how-to-play.html')">나만의 Emotone 탐색하기</button>
+
     </div>
   </main>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.serialport/1.1.2/p5.serialport.min.js"></script>
-  <script src="sketch.js" defer></script>
 </body>
 </html>
+
 
 
 
