@@ -221,3 +221,16 @@ canvas {
   height: 100%;
   border-radius: 10px;
 }
+
+.archive-item {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.archive-color {
+  width: 100px;
+  height: 100px;
+  margin: 5px auto;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
