@@ -33,7 +33,7 @@ const pages = {
     <div class="container">
       <h1>How to Play?</h1>
       <div class="image-section">
-        <img src="free-icon-discussion-4766528.png" alt="Discussion Icon">
+        <img src="free-icon-conversation-1253376.png" alt="Discussion Icon">
         <img src="free-icon-home-repair-4072135.png" alt="Home Repair Icon">
         <img src="free-icon-photo-2984403.png" alt="Photo Icon">
       </div>
