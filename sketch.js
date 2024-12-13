@@ -4,7 +4,7 @@ let joystickX = 512; // 조이스틱 X축 초기값
 let joystickY = 512; // 조이스틱 Y축 초기값
 let buttonPressed = false; // 버튼 상태 추적
 let cursorX, cursorY; // 화면 상의 커서 위치
-let smoothingFactor = 0.1; // 커서 이동 보정 비율
+let smoothingFactor = 0.05; // 커서 이동 보정 비율
 let heartRate = 0; // 심박수 데이터
 let isResultPage = false; // 현재 페이지가 결과 페이지인지 확인
 
@@ -74,8 +74,8 @@ function serialEvent() {
 
   let values = data.split(" "); // 데이터를 공백으로 분리
   if (values.length === 4) {
-    joystickX = parseInt(values[0]); // X축 값
-    joystickY = parseInt(values[1]); // Y축 값
+    joystickX = lerp(joystickX, parseInt(values[0]), 0.5); // X축 값, 천천히 변화
+    joystickY = lerp(joystickY, parseInt(values[1]), 0.5);
     buttonPressed = parseInt(values[2]) === 0; // 버튼 상태 확인
     heartRate = parseInt(values[3]); // 심박수 데이터
   }
