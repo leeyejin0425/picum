@@ -6,7 +6,7 @@ const pages = {
   main: `
   <div class="container">
     <h1>나만의 Emotone</h1>
-    <p>Emotone은 감정을 색상과 소리로 표현하는 창의적인 시스템입니다.</p>
+    <p>Emotone은 당신의 감정을 색상으로 표현하는 창의적인 시스템입니다.</p>
     <button id="explore-button" onclick="navigate('name-input')">나만의 Emotone 탐색하기</button>
   </div>
 `,
@@ -30,18 +30,22 @@ how: `
     </div>
   `,
   "how-to-play": `
-    <div class="container">
-      <h1>How to Play?</h1>
-      <div class="image-section">
-        <img src="free-icon-conversation-1253376.png" alt="Discussion Icon">
-        <img src="free-icon-home-repair-4072135.png" alt="Home Repair Icon">
-        <img src="free-icon-photo-2984403.png" alt="Photo Icon">
-      </div>
-      <p class="description">
-        준비가 되었다면 엄지손가락을 센서 위에 올려주세요.
-      </p>
-      <button class="explore-btn" onclick="navigate('measuring')">측정 시작</button>
-    </div>
+   <div class="container">
+  <h1>How to Play?</h1>
+  <div class="image-section">
+    <img src="free-icon-conversation-1253376.png" alt="Discussion Icon">
+    <img src="free-icon-home-repair-4072135.png" alt="Home Repair Icon">
+    <img src="free-icon-photo-2984403.png" alt="Photo Icon">
+  </div>
+  <p class="description">
+    당신의 감정을 추출하기 위해 곁에 있는 사람을 바라보거나 좋아하는 것을 상상하기<br>
+    혹은 원하는 이미지를 준비해주세요.<br>
+    <br>
+    준비가 되었다면 엄지손가락을 센서 위에 올려주세요.
+  </p>
+  <button class="explore-btn" onclick="navigate('measuring')">측정 시작</button>
+</div>
+
   `,
   measuring: `
     <div class="container">
